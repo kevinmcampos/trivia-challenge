@@ -1,0 +1,43 @@
+{
+    "env": {
+        "node": true,
+        "es6": true,
+        "commonjs": true,
+        "browser": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4, {"SwitchCase": 1}], // Four spaces indent and one indent level on switch's case
+        "camelcase": ["error", {"properties": "always"}], // Use camelcase even in object properties
+        "eqeqeq": ["error", "smart"], // Use type-safe equality with some exceptions
+        "quotes": ["error", "single"], // Single quote for strings
+        "semi": ["error", "always"], // Semicolons on the end of the lines
+        "comma-dangle": ["error", "always-multiline"], // Use comma even at the last element on objects and arrays with multilines. Avoid commas on single line.  
+        "arrow-parens": ["error", "as-needed"], // No parentheses on functions with a single argument
+        "no-console": 0, // Allow console calls
+        "complexity": ["error", {"max": 10}], // Enforce a maximum cyclomatic complexity allowed in a program
+        "max-depth": ["error", {"max": 4}], // Enforce a maximum depth that blocks can be nested
+        "max-nested-callbacks": ["error", {"max": 3}], // Enforce a maximum depth that callbacks can be nested
+        "block-scoped-var": ["error"], // Enforce the use of variables within the scope they are defined
+        "dot-location": ["error", "object"], // Enforce newlines to be after the dot (the dot remains with the object, not with the property)
+        "no-else-return": ["error"], // Disallow else blocks after return statements in if statements
+        "no-unused-vars": ["error", {"vars": "all", "args": "after-used", "caughtError": "all" }], //
+        "strict": ["error", "global"], // Requires strict mode
+        "vars-on-top": ["error"], // Require var declarations be placed at the top of their containing scope
+        "linebreak-style": ["error", "unix"] // No Windows line breaks
+    }
+}
