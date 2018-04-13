@@ -3,7 +3,7 @@ import {
     Platform,
 } from 'react-native';
 
-import colors, { primaryColor, primaryErrorColor } from '../../styles/colors';
+import colors, { primaryColor } from '../../styles/colors';
 
 const styles = StyleSheet.create({
 

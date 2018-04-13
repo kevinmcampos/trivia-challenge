@@ -8,5 +8,10 @@ module.exports = {
     'quiz_true_answer': 'TRUE',
     'quiz_false_answer': 'FALSE',
 
+    'results_scored': 'You scored\n{{scored}} / {{total}}',
+    'results_play_again': 'PLAY AGAIN?',
+    'results_your_answer': 'Your\nAnswer',
+    'results_correct_answer': 'Correct\nAnswer',
+
     'generic_network_error': 'Failed to connect to the server. Check your connection and try it again.',
 };

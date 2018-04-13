@@ -10,7 +10,7 @@ function parseQuestion(questionJson) {
         type: questionJson.category,
         difficulty: questionJson.difficulty,
         question: he.decode(questionJson.question),
-        correctAnswer: questionJson.correct_answer,
+        correctAnswer: questionJson.correct_answer === 'True',
         userAnswer: null,
     };
 }

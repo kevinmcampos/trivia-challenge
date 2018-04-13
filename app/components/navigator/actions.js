@@ -11,3 +11,17 @@ export const resetToQuestionIndex = questionIndex => NavigationActions.reset({
         }),
     ],
 });
+
+export const resetToResults = () => NavigationActions.reset({
+    index: 0,
+    actions: [
+        NavigationActions.navigate({ routeName: 'results' }),
+    ],
+});
+
+export const resetToHome = () => NavigationActions.reset({
+    index: 0,
+    actions: [
+        NavigationActions.navigate({ routeName: 'home' }),
+    ],
+});

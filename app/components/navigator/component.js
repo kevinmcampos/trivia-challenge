@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from '../home/container';
 import Quiz from '../quiz/container';
+import Results from '../results/container';
 
 // Disable lint validation for props due it bug on object descontruction.
 /* eslint react/prop-types: 0 */
@@ -17,7 +18,7 @@ const QuizScreen = ({ navigation }) => (
 );
 
 const ResultsScreen = ({ navigation }) => (
-    <Quiz navigation={navigation} />
+    <Results navigation={navigation} />
 );
 
 export const Navigator = StackNavigator(

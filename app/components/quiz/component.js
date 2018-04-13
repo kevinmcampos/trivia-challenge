@@ -12,7 +12,7 @@ import I18n from 'react-native-i18n';
 import { styles } from './styles';
 import { primaryDark } from '../../styles/colors';
 
-import { resetToQuestionIndex } from '../navigator/actions';
+import { resetToQuestionIndex, resetToResults } from '../navigator/actions';
 
 export default class Quiz extends React.Component {
 
@@ -20,13 +20,13 @@ export default class Quiz extends React.Component {
         super(props);
     }
 
-    async _doAnswer(option) {
-        await this.props.doAnswer(this.props.questionIndex, option);
+    async _doAnswer(userAnswer) {
+        await this.props.doAnswer(this.props.questionIndex, userAnswer);
 
         if (this.props.hasNextQuestion) {
             this.props.navigation.dispatch(resetToQuestionIndex(this.props.questionIndex + 1));
         } else {
-            console.warn('// TODO: Display results');
+            this.props.navigation.dispatch(resetToResults());
         }
     }
 
