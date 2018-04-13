@@ -13,6 +13,8 @@ import I18n from 'react-native-i18n';
 import { styles } from './styles';
 import { primaryDark } from '../../styles/colors';
 
+import { resetToQuestionIndex } from '../navigator/actions';
+
 export default class Home extends React.Component {
 
     constructor(props) {
@@ -21,8 +23,8 @@ export default class Home extends React.Component {
 
     _doBeginTrivia() {
         const onSucessCallback = () => {
-            // TODO: Go to Quiz screen!
-            console.warn('Success!');
+            const FIRST_QUESTION_INDEX = 0;
+            this.props.navigation.dispatch(resetToQuestionIndex(FIRST_QUESTION_INDEX));
         };
 
         this.props.getQuiz(onSucessCallback);
@@ -80,6 +82,7 @@ export default class Home extends React.Component {
 }
 
 Home.propTypes = {
+    navigation: PropTypes.object.isRequired,
     isLoadingQuiz: PropTypes.bool.isRequired,
     quizError: PropTypes.string,
     getQuiz: PropTypes.func.isRequired,

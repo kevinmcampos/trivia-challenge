@@ -32,10 +32,21 @@ function getQuizFailed(state, action) {
     };
 }
 
+function saveQuestionAnswer(state, action) {
+    const newQuiz = [...state.quiz];
+    newQuiz[action.questionIndex].userAnswer = action.userAnswer;
+    
+    return {
+        ...state,
+        quiz: newQuiz,
+    };
+}
+
 const ACTION_REDUCER_MAP = {
     [types.QUIZ_GETTING_QUIZ]: gettingQuiz,
     [types.QUIZ_GET_QUIZ_SUCCESS]: getQuizSuccess,
     [types.QUIZ_GET_QUIZ_FAILED]: getQuizFailed,
+    [types.QUIZ_SAVE_QUESTION_ANSWER]: saveQuestionAnswer,
 };
 
 export default function (state = initialState, action = {}) {

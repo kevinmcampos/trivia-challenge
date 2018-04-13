@@ -1,4 +1,5 @@
 import I18n from 'react-native-i18n';
+import he from 'he';
 
 import * as types from '../constants/quiz';
 import { mountURLForContext } from '../utils/mount-url';
@@ -8,9 +9,9 @@ function parseQuestion(questionJson) {
         category: questionJson.category,
         type: questionJson.category,
         difficulty: questionJson.difficulty,
-        question: questionJson.question,
+        question: he.decode(questionJson.question),
         correctAnswer: questionJson.correct_answer,
-        scored: false,
+        userAnswer: null,
     };
 }
 
@@ -29,7 +30,7 @@ const getQuiz = successCallback => {
             dispatch(gettingQuiz());
             console.log(`[QUIZ] Requesting to ${TRUE_OR_FALSE_URL}`);
             const response = await fetch(TRUE_OR_FALSE_URL);
-            
+
             if (response.status === 200) {
                 const responseJson = await response.json();
                 const quizJson = responseJson.results;
@@ -67,6 +68,21 @@ function getQuizFailed(errorMessage = undefined) {
     };
 }
 
+const doAnswer = (questionIndex, userAnswer) => {
+    return async dispatch => {
+        dispatch(saveQuestionAnswer(questionIndex, userAnswer));
+    };
+};
+
+function saveQuestionAnswer(questionIndex, userAnswer) {
+    return {
+        type: types.QUIZ_SAVE_QUESTION_ANSWER,
+        questionIndex,
+        userAnswer,
+    };
+}
+
 export {
     getQuiz,
+    doAnswer,
 };
