@@ -3,7 +3,7 @@ import {
     Platform,
 } from 'react-native';
 
-import colors, { primaryColor, secondaryColor } from '../../styles/colors';
+import colors, { primaryColor, primaryErrorColor, secondaryColor } from '../../styles/colors';
 
 const styles = StyleSheet.create({
 
@@ -35,15 +35,29 @@ const styles = StyleSheet.create({
     },
 
     HomeButton: {
-        backgroundColor: secondaryColor,
-        borderRadius: 12,
+        flexDirection: 'row',
+        justifyContent: 'center',
         paddingVertical: 16,
+        borderRadius: 12,
+        backgroundColor: secondaryColor,
     },
 
     HomeButtonText: {
         textAlign: 'center',
         color: colors.white,
         fontSize: 22,
+    },
+
+    HomeErrorMessage: {
+        padding: 16,
+        textAlign: 'center',
+        color: primaryErrorColor,
+        fontSize: 16,
+        minHeight: 36,
+    },
+
+    Spinner: {
+        marginLeft: 20,
     },
 });
 
