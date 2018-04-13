@@ -1,23 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Application from './app/components/application/component';
+
+import I18n from 'react-native-i18n';
+import loadTranslations from './app/locales/i18n';
+loadTranslations(I18n);
 
 export default class App extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Open up App.js to start working on your app!</Text>
-                <Text>Changes you make will automatically reload.</Text>
-                <Text>Shake your phone to open the developer menu.</Text>
-            </View>
+            <Application />
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
